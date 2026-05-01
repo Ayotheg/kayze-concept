@@ -17,8 +17,8 @@ import gmaps4 from "../assets/GMAPS4.jpg";
 import logo from "../assets/kayze_logo.jpg";
 
 export const WHATSAPP_NUMBER = "2348033227792";
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
-export const MAPS_URL = "https://maps.app.goo.gl/zxz6Lf25VCo3fwpr6?g_st=ic";
+export const WHATSAPP_URL = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=Hello%20Kayze%20Concept!%20I%20would%20like%20to%20make%20an%20inquiry.`;
+export const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Kayze+Concept,+18+Old+Oko+Oba+Road,+Orile-Agege,+Lagos";
 
 export const navLinks = ["Home", "About", "Products", "Brands", "Gallery", "Location", "Contact"];
 
