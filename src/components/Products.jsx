@@ -46,10 +46,13 @@ const Products = () => {
         >
           {products.map((p, i) => {
             const Icon = LucideIcons[p.icon];
+            // Get color class for the icon
+            const iconColor = p.color.split(' ')[0].replace('from-', '');
+            
             return (
               <motion.div key={i} className="kc-product-card" variants={cardVariants}>
-                <div className={`kc-product-icon-wrap bg-gradient-to-br ${p.color}`}>
-                  <Icon className="kc-product-icon" size={64} color="white" />
+                <div className="kc-product-icon-wrap">
+                  <Icon className="kc-product-icon" size={64} color={`var(--${iconColor.split('-')[0]})`} strokeWidth={1.5} />
                 </div>
                 <h3>{p.title}</h3>
                 <p>{p.desc}</p>

@@ -24,31 +24,31 @@ export const navLinks = ["Home", "About", "Products", "Brands", "Gallery", "Loca
 
 export const products = [
   {
-    icon: "Paintbrush",
+    icon: "Palette",
     title: "Paints",
     desc: "Premium interior and exterior paints from top brands including Finecoat and Prestige. Available in all finishes.",
     color: "from-blue-600 to-blue-400",
   },
   {
-    icon: "Image",
+    icon: "Blinds",
     title: "Wallpapers",
     desc: "Wide selection of modern and classic wallpaper designs for every style and budget.",
     color: "from-purple-600 to-purple-400",
   },
   {
-    icon: "Hammer",
+    icon: "Wrench",
     title: "Nails",
     desc: "Durable construction nails in various sizes for all building applications.",
     color: "from-orange-600 to-orange-400",
   },
   {
-    icon: "Zap",
+    icon: "PlugZap",
     title: "Electrodes",
     desc: "High-quality welding electrodes for professional and industrial use.",
     color: "from-yellow-600 to-yellow-400",
   },
   {
-    icon: "Package",
+    icon: "LayoutGrid",
     title: "Building Accessories",
     desc: "Complete range of finishing materials and building accessories for every project.",
     color: "from-green-600 to-green-400",
@@ -58,8 +58,8 @@ export const products = [
 export const whyUs = [
   { icon: "ShieldCheck", title: "Trusted Supplier", desc: "Years of experience serving Lagos with reliable and authentic building materials." },
   { icon: "CheckCircle", title: "Quality Products", desc: "Only genuine products from authorized manufacturers and trusted brands." },
-  { icon: "DollarSign", title: "Affordable Pricing", desc: "Competitive prices with great value for money on all our products." },
-  { icon: "Package", title: "Bulk Orders Available", desc: "Special rates and discounts for contractors and large-scale projects." },
+  { icon: "CircleDollarSign", title: "Affordable Pricing", desc: "Competitive prices with great value for money on all our products." },
+  { icon: "Box", title: "Bulk Orders Available", desc: "Special rates and discounts for contractors and large-scale projects." },
   { icon: "MessageSquare", title: "Fast Customer Support", desc: "Quick response via WhatsApp and phone for all your inquiries." },
   { icon: "MapPin", title: "Convenient Location", desc: "Easy to find at Orile-Agege, Powerline Bus-Stop with ample parking." },
 ];
