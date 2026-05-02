@@ -219,10 +219,9 @@ body { font-family: var(--font); background: var(--white); color: var(--dark); o
 .kc-hero-thumb.active { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(234,88,12,0.3); }
 
 .kc-hero-address-card {
-  position: absolute; bottom: 30px; right: 10px; z-index: 10;
   background: white; border-radius: 14px;
   padding: 16px 20px; display: flex; gap: 14px; align-items: flex-start;
-  width: 320px; box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  width: 340px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 .kc-address-label { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; color: var(--gray); margin-bottom: 4px; }
 .kc-hero-address-card strong { display: block; font-size: 0.9rem; color: var(--dark); margin-bottom: 6px; }
@@ -234,7 +233,7 @@ body { font-family: var(--font); background: var(--white); color: var(--dark); o
   .kc-hero-content { padding: 60px 24px 32px; max-width: 100%; margin-left: 0; }
   .kc-hero-images { padding: 0 24px 60px; align-items: center; }
   .kc-hero-img-grid { width: 100%; max-width: 400px; }
-  .kc-hero-address-card { position: relative; bottom: auto; right: auto; width: 100%; max-width: 400px; }
+  .kc-hero-address-card { width: 100%; max-width: 400px; }
 }
 @media (max-width: 480px) {
   .kc-hero-title { font-size: 2.2rem; }
@@ -734,3 +733,208 @@ body { font-family: var(--font); background: var(--white); color: var(--dark); o
   .kc-colour-tip { padding: 14px 16px; gap: 10px; }
   .kc-colour-label { padding: 16px 18px 20px; }
 }
+
+/* ===== SKIP LINK (accessibility + SEO) ===== */
+.kc-skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--blue-mid);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 0 0 10px 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.kc-skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--orange);
+}
+
+/* ===== ACTIVE NAV LINK ===== */
+.kc-nav-link.active {
+  background: var(--blue-mid);
+  color: white;
+}
+
+
+/* ===== HERO ===== */
+.kc-hero {
+  min-height: 100vh; padding-top: 70px;
+  background: var(--dark-navy);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+.kc-hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.kc-hero-slide {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.kc-hero-slide.active { opacity: 0.18; }
+.kc-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(14,30,80,0.97) 0%, rgba(10,20,60,0.92) 60%, rgba(30,58,138,0.85) 100%);
+}
+
+/* New Container Wrapper */
+.kc-hero-container {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 60px 24px; gap: 60px;
+}
+
+.kc-hero-content {
+  flex: 1; max-width: 620px;
+}
+
+.kc-hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(234,88,12,0.2); border: 1px solid rgba(234,88,12,0.4);
+  color: #fdba74; padding: 8px 18px; border-radius: 100px;
+  font-size: 0.85rem; font-weight: 600; margin-bottom: 28px;
+}
+
+.kc-hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900;
+  color: white; line-height: 1.1; margin-bottom: 24px;
+}
+.kc-accent { color: var(--orange-light); }
+
+.kc-hero-desc {
+  color: rgba(255,255,255,0.75); font-size: 1.1rem;
+  line-height: 1.7; margin-bottom: 36px; max-width: 520px;
+}
+.kc-hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+
+.kc-hero-stats {
+  display: flex; gap: 0; background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12); border-radius: 16px;
+  overflow: hidden; max-width: 440px;
+}
+.kc-stat {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  padding: 20px 16px; gap: 4px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.kc-stat:last-child { border-right: none; }
+.kc-stat-icon { font-size: 1.3rem; }
+.kc-stat strong { font-size: 1.4rem; font-weight: 800; color: white; }
+.kc-stat span { font-size: 0.78rem; color: rgba(255,255,255,0.6); text-align: center; }
+
+/* Visual & Floating Card (Aligns with Hero.jsx) */
+.kc-hero-visual {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 560px;
+  width: 100%;
+}
+
+.kc-hero-main-img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.3);
+  aspect-ratio: 4/3;
+}
+
+.kc-hero-floating-card {
+  position: absolute;
+  bottom: -30px;
+  left: -40px;
+  background: white;
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  width: 340px;
+  max-width: 90%;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  border: 1px solid rgba(0,0,0,0.05);
+  z-index: 10;
+}
+
+.kc-address-label { 
+  display: block; font-size: 0.7rem; font-weight: 700; 
+  letter-spacing: 1.5px; color: var(--gray); margin-bottom: 4px; text-transform: uppercase; 
+}
+.kc-hero-floating-card strong { 
+  display: block; font-size: 1.05rem; color: var(--dark); margin-bottom: 8px; font-weight: 800; 
+}
+.kc-directions-link { 
+  color: var(--blue-mid); font-size: 0.85rem; font-weight: 700; text-decoration: none; display: inline-block; 
+}
+.kc-directions-link:hover { text-decoration: underline; color: var(--blue); }
+
+/* Responsive Adjustments for Hero */
+@media (max-width: 1024px) {
+  .kc-hero {
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+  .kc-hero-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 60px;
+    padding: 40px 24px;
+  }
+  .kc-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+  .kc-hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .kc-hero-btns {
+    justify-content: center;
+  }
+  .kc-hero-stats {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Center the floating card safely without interfering with Framer Motion */
+  .kc-hero-floating-card {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -40px;
+    width: 90%;
+    max-width: 360px;
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .kc-hero-title { font-size: 2.2rem; }
+  .kc-hero-floating-card {
+    padding: 16px;
+    bottom: -50px;
+    width: 95%;
+  }
+  .kc-hero-floating-card strong {
+    font-size: 0.95rem;
+  }
+  .kc-hero-visual {
+    margin-bottom: 30px; /* Gives the floating card breathing room below */
+  }
+}
+
+
+
