@@ -219,9 +219,10 @@ body { font-family: var(--font); background: var(--white); color: var(--dark); o
 .kc-hero-thumb.active { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(234,88,12,0.3); }
 
 .kc-hero-address-card {
+  position: absolute; bottom: 30px; right: 10px; z-index: 10;
   background: white; border-radius: 14px;
   padding: 16px 20px; display: flex; gap: 14px; align-items: flex-start;
-  width: 340px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  width: 320px; box-shadow: 0 12px 40px rgba(0,0,0,0.4);
 }
 .kc-address-label { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; color: var(--gray); margin-bottom: 4px; }
 .kc-hero-address-card strong { display: block; font-size: 0.9rem; color: var(--dark); margin-bottom: 6px; }
@@ -233,7 +234,7 @@ body { font-family: var(--font); background: var(--white); color: var(--dark); o
   .kc-hero-content { padding: 60px 24px 32px; max-width: 100%; margin-left: 0; }
   .kc-hero-images { padding: 0 24px 60px; align-items: center; }
   .kc-hero-img-grid { width: 100%; max-width: 400px; }
-  .kc-hero-address-card { width: 100%; max-width: 400px; }
+  .kc-hero-address-card { position: relative; bottom: auto; right: auto; width: 100%; max-width: 400px; }
 }
 @media (max-width: 480px) {
   .kc-hero-title { font-size: 2.2rem; }

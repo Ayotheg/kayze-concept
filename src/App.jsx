@@ -6,7 +6,7 @@ import Hero           from "./components/Hero";
 import About          from "./components/About";
 import Products       from "./components/Products";
 import Brands         from "./components/Brands";
-import ColourChart    from "./components/ColourChart";
+import ColourChart    from "./components/Colourchart";
 import WhyChooseUs    from "./components/WhyChooseUs";
 import Gallery        from "./components/Gallery";
 import Location       from "./components/Location";
