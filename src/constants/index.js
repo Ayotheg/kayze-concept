@@ -1,4 +1,4 @@
-// Import store images
+
 import img1 from "../assets/1.jpg";
 import img2 from "../assets/2.jpg";
 import img3 from "../assets/3.jpg";
@@ -7,20 +7,34 @@ import img5 from "../assets/5.jpg";
 import img6 from "../assets/6.jpg";
 import img7 from "../assets/7.jpg";
 
-// Import Gmaps screenshots
+
 import gmaps1 from "../assets/GMAPS1.jpg";
 import gmaps2 from "../assets/GMAPS2.jpg";
 import gmaps3 from "../assets/GMAPS3.jpg";
 import gmaps4 from "../assets/GMAPS4.jpg";
 
+
+import colourTexcoat   from "../assets/chart1.jpg";
+import colourGlossEmul from "../assets/chart2.jpg";
+
 // Import logo
 import logo from "../assets/kayze_logo.jpg";
 
 export const WHATSAPP_NUMBER = "2348033227792";
-export const WHATSAPP_URL = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=Hello%20Kayze%20Concept!%20I%20would%20like%20to%20make%20an%20inquiry.`;
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const MAPS_URL = "https://maps.app.goo.gl/zxz6Lf25VCo3fwpr6?g_st=ic";
 
-export const navLinks = ["Home", "About", "Products", "Brands", "Gallery", "Location", "Contact"];
+// "Colours" inserted between Brands and Gallery
+export const navLinks = [
+  "Home",
+  "About",
+  "Products",
+  "Brands",
+  "Colours",
+  "Gallery",
+  "Location",
+  "Contact",
+];
 
 export const products = [
   {
@@ -65,5 +79,23 @@ export const whyUs = [
 ];
 
 export const galleryImages = [img1, img2, img3, img4, img5, img6, img7];
-export const heroImages = [img1, img2, img3, img4, img5, img6, img7];
-export const gmapsImages = [gmaps1, gmaps2, gmaps3, gmaps4];
+export const heroImages   = [img1, img2, img3, img4, img5, img6, img7];
+export const gmapsImages  = [gmaps1, gmaps2, gmaps3, gmaps4];
+
+// Colour chart pages — Prestige Paint official colour cards
+export const colourChartImages = [
+  {
+    src: colourGlossEmul,
+    label: "Flex & Textured Finish",
+    brand: "Prestige",
+    description: "Interior & exterior gloss and emulsion shades — blues, greens, reds, neutrals and more.",
+    badge: "Prestige Paints",
+  },
+  {
+    src: colourTexcoat,
+    label: "Gloss & Emulsion",
+    brand: "Prestige",
+    description: "Textured and flexible coat colours — ideal for exterior walls and feature surfaces.",
+    badge: "Prestige Paints",
+  },
+];

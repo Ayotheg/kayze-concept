@@ -16,14 +16,11 @@
   --gray: #64748b;
   --gray-light: #f1f5f9;
   --green: #16a34a;
-  --purple: #9333ea;
-  --yellow: #eab308;
   --font: 'Outfit', sans-serif;
 }
 
 html { scroll-behavior: smooth; }
 body { font-family: var(--font); background: var(--white); color: var(--dark); overflow-x: hidden; }
-img { max-width: 100%; height: auto; display: block; }
 
 .kc-root { min-height: 100vh; }
 
@@ -200,19 +197,6 @@ img { max-width: 100%; height: auto; display: block; }
 .kc-stat-icon { font-size: 1.3rem; }
 .kc-stat strong { font-size: 1.4rem; font-weight: 800; color: white; }
 .kc-stat span { font-size: 0.78rem; color: rgba(255,255,255,0.6); text-align: center; }
-
-.kc-hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
-.kc-hero-main-img {
-  width: 100%; border-radius: 40px; box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.kc-hero-main-img:hover { transform: perspective(1000px) rotateY(0) rotateX(0) scale(1.03); }
-.kc-hero-floating-card {
-  position: absolute; bottom: -20px; right: -20px; background: white; border-radius: 24px; padding: 28px;
-  width: 300px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); display: flex; gap: 18px; align-items: flex-start;
-  animation: float 5s ease-in-out infinite; color: var(--dark);
-}
 
 .kc-hero-images {
   position: relative; z-index: 1;
@@ -600,4 +584,152 @@ img { max-width: 100%; height: auto; display: block; }
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== COLOUR CHART ===== */
+.kc-colours { background: #fafbfc; }
+
+/* Tip banner */
+.kc-colour-tip {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: #fff8f0; border: 1px solid rgba(234,88,12,0.2);
+  border-radius: 18px; padding: 18px 24px;
+  margin-bottom: 48px;
+}
+.kc-colour-tip-icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1.5; }
+.kc-colour-tip p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+.kc-colour-tip p strong { color: var(--dark); }
+.kc-colour-tip p em { font-style: normal; font-weight: 600; color: var(--blue-mid); }
+.kc-colour-tip a { color: var(--orange); font-weight: 700; text-decoration: none; }
+.kc-colour-tip a:hover { text-decoration: underline; }
+
+/* Grid — 2 columns, large portrait cards */
+.kc-colour-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+/* Card */
+.kc-colour-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 2px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: box-shadow 0.35s, border-color 0.35s, transform 0.35s;
+  display: flex;
+  flex-direction: column;
+}
+.kc-colour-card:hover {
+  box-shadow: 0 24px 60px rgba(0,0,0,0.14);
+  border-color: var(--orange);
+}
+
+/* Image wrapper — tall portrait to show the full chart */
+.kc-colour-img-wrap {
+  position: relative;
+  /* No fixed aspect ratio — let the real photo dictate height */
+  overflow: hidden;
+  background: #f1f5f9;
+}
+.kc-colour-img-wrap img {
+  width: 100%;
+  height: auto;          /* show every pixel of the chart */
+  display: block;
+  transition: transform 0.5s ease;
+}
+.kc-colour-card:hover .kc-colour-img-wrap img {
+  transform: scale(1.03);
+}
+
+/* Hover overlay */
+.kc-colour-overlay {
+  position: absolute; inset: 0;
+  background: rgba(12,27,58,0.52);
+  backdrop-filter: blur(4px);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 12px; color: white;
+  opacity: 0; transition: opacity 0.3s;
+}
+.kc-colour-card:hover .kc-colour-overlay { opacity: 1; }
+.kc-colour-overlay span {
+  font-family: var(--font-nav);
+  font-size: 0.85rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  text-align: center; padding: 0 16px;
+}
+
+/* Brand badge */
+.kc-colour-page-badge {
+  position: absolute; top: 14px; left: 14px;
+  background: rgba(12,27,58,0.78);
+  backdrop-filter: blur(6px);
+  color: white; font-size: 0.72rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 6px 14px; border-radius: 100px;
+  font-family: var(--font-detail);
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* Card footer */
+.kc-colour-label {
+  padding: 20px 22px 24px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  display: flex; flex-direction: column; gap: 8px;
+  flex: 1;
+}
+.kc-colour-label-main {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.kc-colour-label-main strong {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 800; color: var(--dark);
+}
+.kc-colour-zoom-hint {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 0.75rem; color: var(--gray); font-weight: 600;
+  white-space: nowrap; flex-shrink: 0;
+}
+.kc-colour-label-desc {
+  font-size: 0.88rem; color: var(--gray); line-height: 1.55;
+}
+.kc-colour-order-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--orange); font-weight: 700; font-size: 0.85rem;
+  text-decoration: none; margin-top: 4px;
+  font-family: var(--font-nav); text-transform: uppercase; letter-spacing: 0.05em;
+}
+.kc-colour-order-link:hover { text-decoration: underline; }
+
+/* Bottom CTA */
+.kc-colour-cta {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+  background: linear-gradient(135deg, var(--blue-mid), var(--blue));
+  border-radius: 24px;
+  padding: clamp(28px, 5vw, 44px) clamp(24px, 5vw, 48px);
+}
+.kc-colour-cta-text h3 {
+  color: white; font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 800; margin-bottom: 8px;
+}
+.kc-colour-cta-text p {
+  color: rgba(255,255,255,0.75);
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  line-height: 1.6; max-width: 480px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .kc-colour-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 640px) {
+  .kc-colour-cta { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .kc-colour-cta .kc-btn { width: 100%; justify-content: center; }
+  .kc-colour-tip { padding: 14px 16px; gap: 10px; }
+  .kc-colour-label { padding: 16px 18px 20px; }
 }
