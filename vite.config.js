@@ -5,35 +5,51 @@ export default defineConfig({
   plugins: [react()],
 
   build: {
-    // Raise chunk warning threshold slightly
+    // Slightly raise warning threshold for larger chunks
     chunkSizeWarningLimit: 600,
 
     rollupOptions: {
       output: {
-        // Split vendor libs from app code for better caching
-        manualChunks: {
-          react:        ["react", "react-dom"],
-          framerMotion: ["framer-motion"],
-          lucide:       ["lucide-react"],
+        // Manual chunk splitting (Rolldown-compatible)
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (
+              id.includes("/react/") ||
+              id.includes("react-dom")
+            ) {
+              return "react";
+            }
+
+            if (id.includes("framer-motion")) {
+              return "framerMotion";
+            }
+
+            if (id.includes("lucide-react")) {
+              return "lucide";
+            }
+
+            return "vendor";
+          }
         },
-        // Hashed filenames → long-term browser caching
-        entryFileNames:  "assets/[name].[hash].js",
-        chunkFileNames:  "assets/[name].[hash].js",
-        assetFileNames:  "assets/[name].[hash][extname]",
+
+        // Cache-friendly hashed filenames
+        entryFileNames: "assets/[name].[hash].js",
+        chunkFileNames: "assets/[name].[hash].js",
+        assetFileNames: "assets/[name].[hash][extname]",
       },
     },
 
-    // Minify with esbuild (default, fast)
+    // Fast minification
     minify: "esbuild",
 
-    // Generate source maps only in development
+    // No production sourcemaps
     sourcemap: false,
 
-    // Compress assets
-    assetsInlineLimit: 4096, // inline files < 4kb as base64
+    // Inline very small assets
+    assetsInlineLimit: 4096,
   },
 
-  // Ensure public folder assets (robots.txt, sitemap.xml, og-image) are served
+  // Public assets folder
   publicDir: "public",
 
   server: {
