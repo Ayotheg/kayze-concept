@@ -9,8 +9,6 @@ export default defineConfig({
 
     rollupOptions: {
       output: {
-        // ❌ REMOVE manualChunks completely
-
         entryFileNames: "assets/[name].[hash].js",
         chunkFileNames: "assets/[name].[hash].js",
         assetFileNames: "assets/[name].[hash][extname]",
