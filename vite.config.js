@@ -15,7 +15,8 @@ export default defineConfig({
       },
     },
 
-    minify: "esbuild",
+    // Use Oxc — the new default minifier in Vite 6+, no esbuild needed
+    minify: "oxc",
     sourcemap: false,
     assetsInlineLimit: 4096,
   },
