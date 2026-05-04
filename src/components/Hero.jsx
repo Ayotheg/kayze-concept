@@ -1,10 +1,10 @@
 import React from "react";
 import { Award, MessageSquare, MapPin, Clock, Users, ShieldCheck } from "lucide-react";
-import { WHATSAPP_URL, heroImages, MAPS_URL } from "../constants";
+import { WHATSAPP_URL, gmapsImages, MAPS_URL } from "../constants";
 import { motion } from "framer-motion";
 
 const Hero = ({ heroIdx, scrollTo }) => {
-  const mainHeroImg = heroImages[0];
+  const mainHeroImg = gmapsImages[3];
 
   const contentVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -26,7 +26,7 @@ const Hero = ({ heroIdx, scrollTo }) => {
     >
       {/* Background slideshow — decorative, hidden from screen readers */}
       <div className="kc-hero-bg" aria-hidden="true">
-        {heroImages.slice(1).map((img, i) => (
+        {gmapsImages.slice(1).map((img, i) => (
           <img
             key={i}
             src={img}
