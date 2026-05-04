@@ -14,7 +14,6 @@ import Contact          from "./components/Contact";
 import Footer           from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import Lightbox         from "./components/Lightbox";
-import { Analytics } from "@vercel/analytics/next"
 
 import { heroImages } from "./constants";
 
@@ -142,7 +141,7 @@ export default function App() {
       <Footer scrollTo={scrollTo} />
       <FloatingWhatsApp />
  
-      <Analytics />
+      
       {/* Lightbox lives outside <main> so it overlays everything */}
       <Lightbox lightboxImg={lightboxImg} setLightboxImg={setLightboxImg} />
     </div>
