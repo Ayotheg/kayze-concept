@@ -2,7 +2,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kayzeconcept.com/sitemap.xml
+Sitemap: https://kayze-concept.shop/sitemap.xml
 
 Disallow: /src/
 Disallow: /node_modules/
