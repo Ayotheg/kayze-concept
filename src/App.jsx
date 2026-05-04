@@ -14,7 +14,7 @@ import Contact          from "./components/Contact";
 import Footer           from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import Lightbox         from "./components/Lightbox";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 import { heroImages } from "./constants";
 
