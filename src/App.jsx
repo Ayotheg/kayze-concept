@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Navbar           from "./components/Navbar";
@@ -14,6 +15,7 @@ import Contact          from "./components/Contact";
 import Footer           from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import Lightbox         from "./components/Lightbox";
+import { Analytics } from "@vercel/analytics/next"
 
 import { heroImages } from "./constants";
 
@@ -60,42 +62,34 @@ function updateMeta(section) {
   if (descTag) descTag.setAttribute("content", meta.desc);
 }
 
-// ─────────────────────────────────────────────────────────────
-
-export default function App() {
-  const [menuOpen,     setMenuOpen]    = useState(false);
-  const [scrolled,     setScrolled]    = useState(false);
-  const [heroIdx,      setHeroIdx]     = useState(0);
-  const [lightboxImg,  setLightboxImg] = useState(null);
+// ── Main homepage component ───────────────────────────────────
+function HomePage() {
+  const [menuOpen,      setMenuOpen]      = useState(false);
+  const [scrolled,      setScrolled]      = useState(false);
+  const [heroIdx,       setHeroIdx]       = useState(0);
+  const [lightboxImg,   setLightboxImg]   = useState(null);
   const [activeSection, setActiveSection] = useState("home");
 
-  // ── Scroll listener — update nav highlight + page title ──
+  // Scroll listener — active section + page title
   useEffect(() => {
     const sections = Object.keys(SECTION_META);
-
     const onScroll = () => {
       setScrolled(window.scrollY > 60);
-
-      // Find which section is currently most visible
       let current = "home";
       for (const id of sections) {
         const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120) current = id;
-        }
+        if (el && el.getBoundingClientRect().top <= 120) current = id;
       }
       if (current !== activeSection) {
         setActiveSection(current);
         updateMeta(current);
       }
     };
-
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [activeSection]);
 
-  // ── Hero image slideshow ──────────────────────────────────
+  // Hero slideshow
   useEffect(() => {
     const interval = setInterval(() => {
       setHeroIdx((i) => (i + 1) % heroImages.length);
@@ -103,7 +97,7 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
-  // ── Smooth scroll helper ──────────────────────────────────
+  // Smooth scroll
   const scrollTo = useCallback((id) => {
     const el = document.getElementById(id.toLowerCase());
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -112,10 +106,7 @@ export default function App() {
 
   return (
     <div className="kc-root">
-      {/* ── Skip-to-content link (accessibility + SEO) ── */}
-      <a href="#main-content" className="kc-skip-link">
-        Skip to main content
-      </a>
+      <a href="#main-content" className="kc-skip-link">Skip to main content</a>
 
       <Navbar
         scrolled={scrolled}
@@ -125,15 +116,14 @@ export default function App() {
         activeSection={activeSection}
       />
 
-      {/* Semantic main landmark */}
       <main id="main-content">
-        <Hero           heroIdx={heroIdx}          scrollTo={scrollTo} />
+        <Hero         heroIdx={heroIdx} scrollTo={scrollTo} />
         <About />
         <Products />
         <Brands />
-        <ColourChart    setLightboxImg={setLightboxImg} />
+        <ColourChart  setLightboxImg={setLightboxImg} />
         <WhyChooseUs />
-        <Gallery        setLightboxImg={setLightboxImg} />
+        <Gallery      setLightboxImg={setLightboxImg} />
         <Location />
         <Contact />
       </main>
@@ -141,7 +131,7 @@ export default function App() {
       <Footer scrollTo={scrollTo} />
       <FloatingWhatsApp />
  
-      
+      <Analytics />
       {/* Lightbox lives outside <main> so it overlays everything */}
       <Lightbox lightboxImg={lightboxImg} setLightboxImg={setLightboxImg} />
     </div>

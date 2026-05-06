@@ -1,4 +1,4 @@
-
+// Import store images
 import img1 from "../assets/1.jpg";
 import img2 from "../assets/2.jpg";
 import img3 from "../assets/3.jpg";
@@ -7,13 +7,18 @@ import img5 from "../assets/5.jpg";
 import img6 from "../assets/6.jpg";
 import img7 from "../assets/7.jpg";
 
-
+// Import Gmaps screenshots
 import gmaps1 from "../assets/GMAPS1.jpg";
 import gmaps2 from "../assets/GMAPS2.jpg";
 import gmaps3 from "../assets/GMAPS3.jpg";
 import gmaps4 from "../assets/GMAPS4.jpg";
 
-
+// ─────────────────────────────────────────────────────────────
+// COLOUR CHART IMAGES
+// Place these two files in src/assets/:
+//   COLOUR_CHART_TEXCOAT.jpg
+//   COLOUR_CHART_GLOSS_EMUL.jpg
+// ─────────────────────────────────────────────────────────────
 import colourTexcoat   from "../assets/chart1.jpg";
 import colourGlossEmul from "../assets/chart2.jpg";
 
@@ -44,7 +49,7 @@ export const products = [
     color: "from-blue-600 to-blue-400",
   },
   {
-    icon: "Blinds",
+    icon: "Wallpaper",
     title: "Wallpapers",
     desc: "Wide selection of modern and classic wallpaper designs for every style and budget.",
     color: "from-purple-600 to-purple-400",
@@ -56,7 +61,7 @@ export const products = [
     color: "from-orange-600 to-orange-400",
   },
   {
-    icon: "PlugZap",
+    icon: "Zap",
     title: "Electrodes",
     desc: "High-quality welding electrodes for professional and industrial use.",
     color: "from-yellow-600 to-yellow-400",
@@ -86,14 +91,14 @@ export const gmapsImages  = [gmaps1, gmaps2, gmaps3, gmaps4];
 export const colourChartImages = [
   {
     src: colourGlossEmul,
-    label: "Flex & Textured Finish",
+    label: "Gloss & Emulsion",
     brand: "Prestige",
     description: "Interior & exterior gloss and emulsion shades — blues, greens, reds, neutrals and more.",
     badge: "Prestige Paints",
   },
   {
     src: colourTexcoat,
-    label: "Gloss & Emulsion",
+    label: "Flex & Textured Finish",
     brand: "Prestige",
     description: "Textured and flexible coat colours — ideal for exterior walls and feature surfaces.",
     badge: "Prestige Paints",
