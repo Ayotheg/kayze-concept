@@ -15,7 +15,8 @@ import Contact          from "./components/Contact";
 import Footer           from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import Lightbox         from "./components/Lightbox";
-import { Analytics } from "@vercel/analytics/next"
+import NotFound         from "./components/NotFound";
+import { Analytics }    from "@vercel/analytics/react";
 
 import { heroImages } from "./constants";
 
@@ -130,10 +131,20 @@ function HomePage() {
 
       <Footer scrollTo={scrollTo} />
       <FloatingWhatsApp />
- 
-      <Analytics />
-      {/* Lightbox lives outside <main> so it overlays everything */}
       <Lightbox lightboxImg={lightboxImg} setLightboxImg={setLightboxImg} />
     </div>
+  );
+}
+
+// ── Root with router ─────────────────────────────────────────
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Analytics />
+      <Routes>
+        <Route path="/"   element={<HomePage />} />
+        <Route path="*"   element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
