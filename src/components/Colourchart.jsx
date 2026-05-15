@@ -1,6 +1,6 @@
 import React from "react";
 import { ZoomIn, MessageSquare, Palette } from "lucide-react";
-import { colourChartImages, WHATSAPP_URL } from "../constants";
+import { colourChartImages, WHATSAPP_URL, COLOUR_MATCHER_URL } from "../constants";
 import { motion } from "framer-motion";
 
 const ColourChart = ({ setLightboxImg }) => {
@@ -101,20 +101,19 @@ const ColourChart = ({ setLightboxImg }) => {
           transition={{ delay: 0.2 }}
         >
           <div className="kc-colour-cta-text">
-            <h3>Need a shade that's not on the chart?</h3>
+            <h3>Not sure about the right color combination?</h3>
             <p>
-              Additional colours are available on demand. We can also produce
-              customised shades to your specification — just ask us.
+             Use our color matcher tool and get color suggestions based on your preferences.
             </p>
           </div>
           <a
-            href={WHATSAPP_URL}
+            href={COLOUR_MATCHER_URL}
             target="_blank"
             rel="noreferrer"
             className="kc-btn kc-btn-whatsapp"
           >
-            <MessageSquare size={18} />
-            Ask About a Colour
+            <Palette size={18} />
+            Match a Colour
           </a>
         </motion.div>
 

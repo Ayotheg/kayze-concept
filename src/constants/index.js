@@ -28,6 +28,7 @@ import logo from "../assets/kayze_logo.jpg";
 export const WHATSAPP_NUMBER = "2348033227792";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const MAPS_URL = "https://maps.app.goo.gl/zxz6Lf25VCo3fwpr6?g_st=ic";
+export const COLOUR_MATCHER_URL = "https://color-match-ng.vercel.app/";
 
 // "Colours" inserted between Brands and Gallery
 export const navLinks = [
