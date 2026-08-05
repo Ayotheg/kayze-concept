@@ -84,6 +84,13 @@ export const whyUs = [
   { icon: "MapPin", title: "Convenient Location", desc: "Easy to find at Orile-Agege, Powerline Bus-Stop with ample parking." },
 ];
 
+// Real customer reviews, sourced from our Google Business Profile.
+// Keep this in sync with the aggregateRating in index.html's JSON-LD —
+// when you add a new review here, update ratingValue / reviewCount there too.
+export const testimonials = [
+  { name: "Omoniyi Ayoola Sultan", rating: 5, text: "Great Customer Experience! Quality products too, I'd definitely recommend them" },
+];
+
 export const galleryImages = [img1, img2, img3, img4, img5, img6, img7];
 export const heroImages   = [img1, img2, img3, img4, img5, img6, img7];
 export const gmapsImages  = [gmaps1, gmaps2, gmaps3, gmaps4];

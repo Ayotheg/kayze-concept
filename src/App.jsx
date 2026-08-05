@@ -9,6 +9,7 @@ import Products         from "./components/Products";
 import Brands           from "./components/Brands";
 import ColourChart      from "./components/Colourchart";
 import WhyChooseUs      from "./components/WhyChooseUs";
+import Testimonials     from "./components/Testimonials";
 import Gallery          from "./components/Gallery";
 import Location         from "./components/Location";
 import Contact          from "./components/Contact";
@@ -41,6 +42,10 @@ const SECTION_META = {
   colours:  {
     title: "Paint Colour Chart — Prestige Gloss, Emulsion & Textured Finishes | Kayze Concept",
     desc:  "Browse the official Prestige Paint colour chart — gloss, emulsion and textured finishes. Order any shade via WhatsApp from Kayze Concept, Lagos.",
+  },
+  testimonials: {
+    title: "Customer Reviews | Kayze Concept Building Materials Lagos",
+    desc:  "See what customers say about Kayze Concept — Lagos' trusted building materials merchant at Orile-Agege, authorized Finecoat & Prestige paint distributor.",
   },
   gallery:  {
     title: "Store Gallery | Kayze Concept Building Materials Lagos",
@@ -124,6 +129,7 @@ function HomePage() {
         <Brands />
         <ColourChart  setLightboxImg={setLightboxImg} />
         <WhyChooseUs />
+        <Testimonials />
         <Gallery      setLightboxImg={setLightboxImg} />
         <Location />
         <Contact />
