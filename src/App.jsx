@@ -154,3 +154,16 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
+export function Sabilytics() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.sabilytics.com/script.js";
+    script.setAttribute("data-site", "x883bi6a0u10");
+    script.setAttribute("data-domain", "kayze-concept.shop");
+    document.head.appendChild(script);
+  }, []);
+
+  return null;
+}
