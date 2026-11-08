@@ -33,18 +33,18 @@ const Gallery = ({ setLightboxImg }) => {
           }}
         >
           {galleryImages.map((img, i) => (
-            <motion.div 
-              key={i} 
-              className="kc-gallery-item" 
-              onClick={() => setLightboxImg(img)}
+            <motion.div
+              key={img.src}
+              className={`kc-gallery-item${img.tall ? " tall" : ""}`}
+              onClick={() => setLightboxImg(img.src)}
               variants={{
                 hidden: { opacity: 0, scale: 0.9 },
                 visible: { opacity: 1, scale: 1 }
               }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              <img src={img} alt={`Store gallery ${i + 1}`} />
+              <img src={img.src} alt={img.alt || `Store gallery ${i + 1}`} loading="lazy" />
               <div className="kc-gallery-overlay">
                 <Search size={40} />
               </div>

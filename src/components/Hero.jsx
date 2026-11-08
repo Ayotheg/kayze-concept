@@ -1,10 +1,10 @@
 import React from "react";
 import { Award, MessageSquare, MapPin, Clock, Users, ShieldCheck } from "lucide-react";
-import { WHATSAPP_URL, gmapsImages, MAPS_URL } from "../constants";
+import { WHATSAPP_URL, gmapsImages, heroImages, MAPS_URL } from "../constants";
 import { motion } from "framer-motion";
 
 const Hero = ({ heroIdx, scrollTo }) => {
-  const mainHeroImg = gmapsImages[3];
+  const mainHeroImg = gmapsImages[0];
 
   const contentVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -26,7 +26,7 @@ const Hero = ({ heroIdx, scrollTo }) => {
     >
       {/* Background slideshow — decorative, hidden from screen readers */}
       <div className="kc-hero-bg" aria-hidden="true">
-        {gmapsImages.slice(1).map((img, i) => (
+        {heroImages.map((img, i) => (
           <img
             key={i}
             src={img}
@@ -36,6 +36,8 @@ const Hero = ({ heroIdx, scrollTo }) => {
             loading="lazy"
           />
         ))}
+        {/* Tablet/mobile: storefront photo fills the hero behind a colour wash */}
+        <img src={mainHeroImg} alt="" role="presentation" className="kc-hero-photo-bg" />
         <div className="kc-hero-overlay" />
       </div>
 
@@ -109,10 +111,10 @@ const Hero = ({ heroIdx, scrollTo }) => {
         >
           <img
             src={mainHeroImg}
-            alt="Inside Kayze Concept's building materials store in Orile-Agege, Lagos"
+            alt="Kayze Concept's building materials store front in Orile-Agege, Lagos"
             className="kc-hero-main-img"
-            width="560"
-            height="420"
+            width="960"
+            height="1280"
             loading="eager"
             fetchpriority="high"
           />

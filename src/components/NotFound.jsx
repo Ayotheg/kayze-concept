@@ -91,7 +91,7 @@ const NotFound = () => {
           <div className="kc-404-links">
             <p>Or jump to a section:</p>
             <div className="kc-404-anchors">
-              {["Products", "Colours", "Brands", "Location", "Contact"].map((s) => (
+              {["Products", "Colours", "Brands", "Gallery", "Location"].map((s) => (
                 <a key={s} href={`/#${s.toLowerCase()}`} className="kc-404-anchor">
                   {s}
                 </a>

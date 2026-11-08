@@ -1,6 +1,7 @@
 import React from "react";
-import { Award, Users, TrendingUp, ShieldCheck } from "lucide-react";
+import { Award, Users, TrendingUp, ShieldCheck, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { storePhotos } from "../constants";
 
 const About = () => {
   const containerVariants = {
@@ -44,6 +45,23 @@ const About = () => {
             </p>
             <p>Whether you're working on a residential project, commercial building, or industrial facility, Kayze Concept has the materials and expertise to help you succeed.</p>
           </motion.div>
+
+          {/* Photo collage — real shots from the shop floor */}
+          <motion.div className="kc-about-collage" variants={itemVariants}>
+            <figure className="kc-collage-tile">
+              <img src={storePhotos.brushesAndPaint.src} alt={storePhotos.brushesAndPaint.alt} loading="lazy" />
+              <figcaption>Paints &amp; brushes</figcaption>
+            </figure>
+            <figure className="kc-collage-tile kc-collage-tile-offset">
+              <img src={storePhotos.concreteNails.src} alt={storePhotos.concreteNails.alt} loading="lazy" />
+              <figcaption>Nails &amp; hardware</figcaption>
+            </figure>
+            <div className="kc-collage-tag">
+              <MapPin size={14} aria-hidden="true" />
+              Old Oko Oba Road, Agege
+            </div>
+          </motion.div>
+
           <motion.div className="kc-about-stats" variants={containerVariants}>
             <motion.div className="kc-astat kc-astat-blue" variants={itemVariants}>
               <Award className="kc-astat-icon" size={32} color="#2563eb" />

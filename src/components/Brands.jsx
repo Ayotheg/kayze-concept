@@ -1,5 +1,5 @@
 import React from "react";
-import { Award, CheckCircle2 } from "lucide-react";
+import { Award, CheckCircle2, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Brands = () => {
@@ -65,8 +65,13 @@ const Brands = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <strong>Authenticity Guaranteed</strong>
-          <p>We supply 100% genuine Finecoat and Prestige paints directly from the manufacturer.</p>
+          <span className="kc-brands-guarantee-icon" aria-hidden="true">
+            <ShieldCheck size={26} />
+          </span>
+          <div>
+            <strong>Authenticity Guaranteed</strong>
+            <p>We supply 100% genuine Finecoat and Prestige paints directly from the manufacturer.</p>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import React from "react";
-import { Palette, Wallpaper, Wrench, Zap, LayoutGrid } from "lucide-react";
-import { WHATSAPP_URL, products } from "../constants";
+import { Palette, Wallpaper, Wrench, Zap, LayoutGrid, Paintbrush, ArrowUpRight } from "lucide-react";
+import { WHATSAPP_URL, products, productPhotos, storePhotos } from "../constants";
 import { motion } from "framer-motion";
 
 // Direct icon map — avoids wildcard import resolution issues
@@ -10,6 +10,7 @@ const ICON_MAP = {
   Wrench,
   Zap,
   LayoutGrid,
+  Paintbrush,
 };
 
 // Colour map — converts "from-blue-600" → actual hex
@@ -56,18 +57,30 @@ const Products = () => {
           {products.map((p, i) => {
             const Icon  = ICON_MAP[p.icon];
             const color = COLOR_MAP[p.color.split(" ")[0]] ?? "#2563eb";
+            const photo = storePhotos[productPhotos[p.title]];
 
             return (
               <motion.div key={i} className="kc-product-card" variants={cardVariants}>
-                <div
-                  className="kc-product-icon-wrap"
-                  style={{ background: `${color}18` }}
-                >
-                  {Icon
-                    ? <Icon size={64} color={color} strokeWidth={1.5} className="kc-product-icon" />
-                    : <span style={{ fontSize: "3rem" }}>📦</span>
-                  }
-                </div>
+                {photo ? (
+                  <div className="kc-product-photo">
+                    <img src={photo.src} alt={photo.alt} loading="lazy" width="960" height="1280" />
+                    {Icon && (
+                      <span className="kc-product-photo-badge" style={{ background: color }}>
+                        <Icon size={20} color="white" strokeWidth={2} aria-hidden="true" />
+                      </span>
+                    )}
+                  </div>
+                ) : (
+                  <div
+                    className="kc-product-icon-wrap"
+                    style={{ background: `${color}18` }}
+                  >
+                    {Icon
+                      ? <Icon size={64} color={color} strokeWidth={1.5} className="kc-product-icon" />
+                      : <span style={{ fontSize: "3rem" }}>📦</span>
+                    }
+                  </div>
+                )}
                 <h3>{p.title}</h3>
                 <p>{p.desc}</p>
                 <a
@@ -76,7 +89,8 @@ const Products = () => {
                   rel="noreferrer"
                   className="kc-product-cta"
                 >
-                  Order via WhatsApp →
+                  <span>Order via WhatsApp</span>
+                  <ArrowUpRight size={18} aria-hidden="true" />
                 </a>
               </motion.div>
             );

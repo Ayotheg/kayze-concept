@@ -46,11 +46,13 @@ const WhyChooseUs = () => {
         >
           {whyUs.map((w, i) => {
             const Icon = ICON_MAP[w.icon];
+            const tone = i % 2 === 0 ? "blue" : "orange";
             return (
-              <motion.div key={i} className="kc-why-card" variants={itemVariants}>
+              <motion.div key={i} className={`kc-why-card kc-why-${tone}`} variants={itemVariants}>
+                <span className="kc-why-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                 <div className="kc-why-icon">
                   {Icon
-                    ? <Icon size={28} color="#2563eb" />
+                    ? <Icon size={26} strokeWidth={2} />
                     : <span>✅</span>
                   }
                 </div>

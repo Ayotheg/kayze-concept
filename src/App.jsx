@@ -12,7 +12,7 @@ import WhyChooseUs      from "./components/WhyChooseUs";
 import Testimonials     from "./components/Testimonials";
 import Gallery          from "./components/Gallery";
 import Location         from "./components/Location";
-import Contact          from "./components/Contact";
+import StoreBanner      from "./components/StoreBanner";
 import Footer           from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import Lightbox         from "./components/Lightbox";
@@ -54,10 +54,6 @@ const SECTION_META = {
   location: {
     title: "Find Us | Kayze Concept — 18 Old Oko Oba Road, Orile-Agege, Lagos",
     desc:  "Visit Kayze Concept at 18 Old Oko Oba Road, Powerline Bus-Stop, Orile-Agege, Lagos. Open Mon–Sat 8AM–7PM, Sun 1PM–4PM. Call +234 803 322 7792.",
-  },
-  contact:  {
-    title: "Contact Kayze Concept | Order Building Materials via WhatsApp, Lagos",
-    desc:  "Order building materials from Kayze Concept via WhatsApp (+234 803 322 7792) or visit our store in Orile-Agege, Lagos. Fast response guaranteed.",
   },
 };
 
@@ -129,10 +125,10 @@ function HomePage() {
         <Brands />
         <ColourChart  setLightboxImg={setLightboxImg} />
         <WhyChooseUs />
+        <StoreBanner />
         <Testimonials />
         <Gallery      setLightboxImg={setLightboxImg} />
         <Location />
-        <Contact />
       </main>
 
       <Footer scrollTo={scrollTo} />

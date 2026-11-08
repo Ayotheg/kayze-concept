@@ -28,7 +28,6 @@ import logo from "../assets/kayze_logo.jpg";
 export const WHATSAPP_NUMBER = "2348033227792";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const MAPS_URL = "https://maps.app.goo.gl/zxz6Lf25VCo3fwpr6?g_st=ic";
-export const COLOUR_MATCHER_URL = "https://color-match-ng.vercel.app/";
 
 // "Colours" inserted between Brands and Gallery
 export const navLinks = [
@@ -39,8 +38,21 @@ export const navLinks = [
   "Colours",
   "Gallery",
   "Location",
-  "Contact",
 ];
+
+// ─────────────────────────────────────────────────────────────
+// IN-STORE PHOTOS (served from /public)
+// ─────────────────────────────────────────────────────────────
+export const storePhotos = {
+  brushesAndPaint: { src: "/new-1.jpg", alt: "Paint brushes, rollers and Finecoat emulsion buckets at the Kayze Concept storefront" },
+  concreteNails:   { src: "/new-3.jpg", alt: "Boxes of concrete nails in assorted sizes stocked at Kayze Concept" },
+  scrapersBrooms:  { src: "/new-4.jpg", alt: "Wall scrapers and broom handles hanging in the Kayze Concept shop" },
+  rollers:         { src: "/new-5.jpg", alt: "Paint rollers hanging at the Kayze Concept shop front on Old Oko Oba Road" },
+  brushCloseUp:    { src: "/new-6.jpg", alt: "Close-up of pure-bristle paint brushes in every size" },
+  colourBoard:     { src: "/new-7.jpg", alt: "Finecoat emulsion and gloss enamel colour board on display in store" },
+  padlocks:        { src: "/new-8.jpg", alt: "Lizam padlocks in assorted sizes on the display board" },
+  wallpaperRolls:  { src: img3,         alt: "Box of wallpaper rolls in stock at Kayze Concept" },
+};
 
 export const products = [
   {
@@ -70,10 +82,26 @@ export const products = [
   {
     icon: "LayoutGrid",
     title: "Building Accessories",
-    desc: "Complete range of finishing materials and building accessories for every project.",
+    desc: "Padlocks, fittings and a complete range of finishing materials and accessories for every project.",
     color: "from-green-600 to-green-400",
   },
+  {
+    icon: "Paintbrush",
+    title: "Painting Tools",
+    desc: "Pure-bristle brushes, rollers, scrapers and trays — everything to get paint on the wall cleanly.",
+    color: "from-blue-600 to-blue-400",
+  },
 ];
+
+// Product card photos, keyed by product title. Products without a
+// photo fall back to their icon.
+export const productPhotos = {
+  "Paints":               "colourBoard",
+  "Wallpapers":           "wallpaperRolls",
+  "Nails":                "concreteNails",
+  "Building Accessories": "padlocks",
+  "Painting Tools":       "brushCloseUp",
+};
 
 export const whyUs = [
   { icon: "ShieldCheck", title: "Trusted Supplier", desc: "Years of experience serving Lagos with reliable and authentic building materials." },
@@ -91,9 +119,35 @@ export const testimonials = [
   { name: "Omoniyi Ayoola Sultan", rating: 5, text: "Great Customer Experience! Quality products too, I'd definitely recommend them" },
 ];
 
-export const galleryImages = [img1, img2, img3, img4, img5, img6, img7];
-export const heroImages   = [img1, img2, img3, img4, img5, img6, img7];
 export const gmapsImages  = [gmaps1, gmaps2, gmaps3, gmaps4];
+
+// Hero background slideshow (very faint, decorative)
+export const heroImages = [
+  storePhotos.rollers.src,
+  storePhotos.brushCloseUp.src,
+  storePhotos.scrapersBrooms.src,
+  storePhotos.brushesAndPaint.src,
+];
+
+// Gallery — portrait in-store shots ("tall") interleaved with the
+// landscape showroom photos so the masonry grid stays balanced.
+const p = storePhotos;
+export const galleryImages = [
+  { ...p.brushesAndPaint, tall: true },
+  { src: img1, alt: "Kayze Concept showroom" },
+  { src: img2, alt: "Kayze Concept showroom" },
+  { ...p.concreteNails, tall: true },
+  { src: img3, alt: "Kayze Concept showroom" },
+  { ...p.brushCloseUp, tall: true },
+  { src: img4, alt: "Kayze Concept showroom" },
+  { src: img5, alt: "Kayze Concept showroom" },
+  { ...p.padlocks, tall: true },
+  { ...p.colourBoard, tall: true },
+  { src: img6, alt: "Kayze Concept showroom" },
+  { ...p.scrapersBrooms, tall: true },
+  { src: img7, alt: "Kayze Concept showroom" },
+  { ...p.rollers },
+];
 
 // Colour chart pages — Prestige Paint official colour cards
 export const colourChartImages = [

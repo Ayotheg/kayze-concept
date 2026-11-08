@@ -53,16 +53,23 @@ const Testimonials = () => {
         >
           {testimonials.map((t, i) => (
             <motion.div key={i} className="kc-testimonial-card" variants={itemVariants}>
-              <Quote size={24} color="#2563eb" className="kc-testimonial-quote-icon" />
-              <div className="kc-testimonial-stars">
-                {Array.from({ length: 5 }).map((_, s) => (
-                  <Star key={s} size={16} fill={s < t.rating ? "#f59e0b" : "none"} color="#f59e0b" />
-                ))}
+              <div className="kc-testimonial-top">
+                <div className="kc-testimonial-stars">
+                  {Array.from({ length: 5 }).map((_, s) => (
+                    <Star key={s} size={16} fill={s < t.rating ? "#f59e0b" : "none"} color="#f59e0b" />
+                  ))}
+                </div>
+                <Quote size={32} className="kc-testimonial-quote-icon" aria-hidden="true" />
               </div>
-              <p className="kc-testimonial-text">"{t.text}"</p>
+              <p className="kc-testimonial-text">“{t.text}”</p>
               <div className="kc-testimonial-author">
-                <span className="kc-testimonial-name">{t.name}</span>
-                <span className="kc-testimonial-source">Google Review</span>
+                <span className="kc-testimonial-avatar" aria-hidden="true">
+                  {t.name.charAt(0)}
+                </span>
+                <div>
+                  <span className="kc-testimonial-name">{t.name}</span>
+                  <span className="kc-testimonial-source">Google Review</span>
+                </div>
               </div>
             </motion.div>
           ))}
