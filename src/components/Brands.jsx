@@ -1,6 +1,7 @@
 import React from "react";
 import { Award, CheckCircle2, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
+import { storePhotos } from "../constants";
 
 const Brands = () => {
   return (
@@ -26,6 +27,7 @@ const Brands = () => {
             viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
           >
+            <img className="kc-brand-photo" src={storePhotos.finecoatPaint.src} alt="" role="presentation" loading="lazy" />
             <div className="kc-brand-header">
               <Award className="kc-brand-badge" size={32} />
               <h3>Finecoat</h3>
@@ -45,6 +47,7 @@ const Brands = () => {
             viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
           >
+            <img className="kc-brand-photo" src={storePhotos.prestigePaint.src} alt="" role="presentation" loading="lazy" />
             <div className="kc-brand-header">
               <Award className="kc-brand-badge" size={32} />
               <h3>Prestige</h3>

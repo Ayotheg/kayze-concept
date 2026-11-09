@@ -1,6 +1,7 @@
 import React from "react";
 import { Palette, Wallpaper, Wrench, Zap, LayoutGrid, Paintbrush, ArrowUpRight } from "lucide-react";
 import { WHATSAPP_URL, products, productPhotos, storePhotos } from "../constants";
+import InStockShowroom from "./InStockShowroom";
 import { motion } from "framer-motion";
 
 // Direct icon map — avoids wildcard import resolution issues
@@ -95,6 +96,21 @@ const Products = () => {
               </motion.div>
             );
           })}
+        </motion.div>
+
+        <div className="kc-instock-head">
+          <h3>Also in stock</h3>
+          <p>A few more things you'll find on our shelves — tap one to ask on WhatsApp.</p>
+        </div>
+
+        {/* Also in stock — slow "showroom" glide, contained in the page */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+        >
+          <InStockShowroom />
         </motion.div>
       </div>
     </section>

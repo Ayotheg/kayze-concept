@@ -40,8 +40,8 @@ const SECTION_META = {
     desc:  "Kayze Concept is an authorized distributor of Finecoat and Prestige paints in Lagos. 100% genuine products with manufacturer warranty.",
   },
   colours:  {
-    title: "Paint Colour Chart — Prestige Gloss, Emulsion & Textured Finishes | Kayze Concept",
-    desc:  "Browse the official Prestige Paint colour chart — gloss, emulsion and textured finishes. Order any shade via WhatsApp from Kayze Concept, Lagos.",
+    title: "Paint Colour Charts — Prestige & Finecoat Emulsion, Gloss & Textured Finishes | Kayze Concept",
+    desc:  "Browse the official Prestige and Finecoat colour cards — emulsion, gloss enamel and textured finishes. Order any shade via WhatsApp from Kayze Concept, Lagos.",
   },
   testimonials: {
     title: "Customer Reviews | Kayze Concept Building Materials Lagos",
