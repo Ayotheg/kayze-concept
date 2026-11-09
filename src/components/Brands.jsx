@@ -1,9 +1,40 @@
 import React from "react";
-import { Award, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Award, CheckCircle2, ShieldCheck, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { storePhotos } from "../constants";
+import { storePhotos, brandFeatures, WHATSAPP_URL } from "../constants";
 
-const Brands = () => {
+/* "Popular pick" strip at the foot of each brand card */
+const BrandFeature = ({ brand, setLightboxImg }) => {
+  const f = brandFeatures[brand];
+  const ph = storePhotos[f.photo];
+  return (
+    <div className="kc-brand-feature">
+      <button
+        className="kc-brand-feature-img"
+        onClick={() => setLightboxImg?.(ph.src)}
+        aria-label={`Zoom: ${ph.alt}`}
+      >
+        <img src={ph.src} alt={ph.alt} loading="lazy" />
+      </button>
+      <div className="kc-brand-feature-text">
+        <span>Popular pick</span>
+        <strong>{f.name}</strong>
+        <small>{f.size}</small>
+      </div>
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noreferrer noopener"
+        className="kc-brand-feature-cta"
+        aria-label={`Ask the price of ${f.name} on WhatsApp`}
+      >
+        Ask price <ArrowUpRight size={15} aria-hidden="true" />
+      </a>
+    </div>
+  );
+};
+
+const Brands = ({ setLightboxImg }) => {
   return (
     <section id="brands" className="kc-section kc-brands">
       <div className="kc-container">
@@ -38,6 +69,7 @@ const Brands = () => {
               <li><CheckCircle2 size={16} /> Wide color selection</li>
               <li><CheckCircle2 size={16} /> Eco-friendly formulations</li>
             </ul>
+            <BrandFeature brand="Finecoat" setLightboxImg={setLightboxImg} />
           </motion.div>
           
           <motion.div 
@@ -58,6 +90,7 @@ const Brands = () => {
               <li><CheckCircle2 size={16} /> Weather resistant</li>
               <li><CheckCircle2 size={16} /> Easy application</li>
             </ul>
+            <BrandFeature brand="Prestige" setLightboxImg={setLightboxImg} />
           </motion.div>
         </div>
         

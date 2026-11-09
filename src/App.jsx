@@ -122,7 +122,7 @@ function HomePage() {
         <Hero         heroIdx={heroIdx} scrollTo={scrollTo} />
         <About />
         <Products />
-        <Brands />
+        <Brands       setLightboxImg={setLightboxImg} />
         <ColourChart  setLightboxImg={setLightboxImg} />
         <WhyChooseUs />
         <StoreBanner />

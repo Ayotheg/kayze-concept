@@ -78,7 +78,7 @@ const ColourBook = ({ card, setLightboxImg, delay }) => {
 
         {index === 0 && (
           <span className="kc-book-hint" aria-hidden="true">
-            <Hand size={14} /> Swipe to open
+            <Hand size={14} /> Swipe
           </span>
         )}
 
@@ -106,8 +106,10 @@ const ColourBook = ({ card, setLightboxImg, delay }) => {
       <div className="kc-book-caption">
         <strong>{current.label}</strong>
         <p>{current.isCover ? card.intro : current.description}</p>
-        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer noopener" className="kc-book-order">
-          <MessageSquare size={16} aria-hidden="true" /> Order a {card.brand} colour
+        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer noopener" className="kc-book-order" aria-label={`Order a ${card.brand} colour on WhatsApp`}>
+          <MessageSquare size={16} aria-hidden="true" />
+          <span className="long">Order a {card.brand} colour</span>
+          <span className="short">Order</span>
         </a>
       </div>
     </motion.article>

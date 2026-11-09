@@ -65,6 +65,14 @@ export const storePhotos = {
   handSaws:        { src: "/saw.jpg",            alt: "Target 18-inch hand saws" },
   insecticide:     { src: "/sniper-insec(1).jpg", alt: "Sniper insecticide bottles" },
   sprayPaint:      { src: "/spray-paint.jpg",    alt: "Pico spray paint cans and screwdrivers" },
+  prestigeBucket:  { src: "/new-paint.jpg",      alt: "20-litre bucket of Prestige Standard Emulsion paint" },
+  finecoatBucket:  { src: "/prs_2.jpg",          alt: "20-litre bucket of Finecoat Acrylic Emulsion in Brilliant White" },
+};
+
+// Featured product on each brand card
+export const brandFeatures = {
+  Finecoat: { photo: "finecoatBucket", name: "Finecoat Acrylic Emulsion", size: "20 L · Brilliant White & more" },
+  Prestige: { photo: "prestigeBucket", name: "Prestige Standard Emulsion", size: "20 L · No added lead" },
 };
 
 // "Also in stock" rail under the product grid
@@ -156,24 +164,21 @@ export const heroImages = [
   storePhotos.brushesAndPaint.src,
 ];
 
-// Gallery — portrait in-store shots ("tall") interleaved with the
-// landscape showroom photos so the masonry grid stays balanced.
+// Gallery — portrait in-store shots ("tall", 2 rows) mixed with landscape
+// showroom photos. Ordered in blocks that tile a 4-column grid exactly:
+//   [T, S, S, T, S, S] → 2 rows   ·   [T, T, T, T] → 2 rows
 const p = storePhotos;
+const room = (src) => ({ src, alt: "Kayze Concept showroom" });
 export const galleryImages = [
-  { ...p.brushesAndPaint, tall: true },
-  { src: img1, alt: "Kayze Concept showroom" },
-  { src: img2, alt: "Kayze Concept showroom" },
-  { ...p.concreteNails, tall: true },
-  { src: img3, alt: "Kayze Concept showroom" },
-  { ...p.brushCloseUp, tall: true },
-  { src: img4, alt: "Kayze Concept showroom" },
-  { src: img5, alt: "Kayze Concept showroom" },
-  { ...p.padlocks, tall: true },
-  { ...p.colourBoard, tall: true },
-  { src: img6, alt: "Kayze Concept showroom" },
-  { ...p.scrapersBrooms, tall: true },
-  { src: img7, alt: "Kayze Concept showroom" },
-  { ...p.rollers },
+  // rows 1–2
+  { ...p.brushesAndPaint, tall: true }, room(img1), room(img2),
+  { ...p.concreteNails, tall: true },   room(img3), room(img4),
+  // rows 3–4 — the paint buckets, front and centre
+  { ...p.brushCloseUp, tall: true }, { ...p.prestigeBucket, tall: true },
+  { ...p.finecoatBucket, tall: true }, { ...p.padlocks, tall: true },
+  // rows 5–6
+  { ...p.colourBoard, tall: true },   room(img5), room(img6),
+  { ...p.scrapersBrooms, tall: true }, room(img7), { ...p.rollers },
 ];
 
 // Colour chart pages — Prestige Paint official colour cards
